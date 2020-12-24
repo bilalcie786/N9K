@@ -1,0 +1,69 @@
+#!/usr/bin/expect
+
+### Authored by 'Bilal Ashfaq' Copy Right Protected ###
+
+### RESTORING SPINE-201 ###
+eval spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no admin@198.18.5.201
+set timeout 60
+expect "*?assword:*"
+send -- "C1sco12345!!!\r"
+sleep 2
+send -- "copy bootflash:IPFM-SPINE201-LAB-START running-config\r"
+sleep 5 
+send -- "exit\r"
+#expect eof
+
+
+
+### RESTORING SPINE-202 ###
+eval spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no admin@198.18.5.202
+set timeout 60
+expect "*?assword:*"
+send -- "C1sco12345!!!\r"
+sleep 2
+send -- "copy bootflash:IPFM-SPINE202-LAB-START running-config\r"
+sleep 5
+send -- "exit\r"
+#expect eof
+
+
+
+### RESTORING LEAF-101 ###
+eval spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no admin@198.18.5.101
+set timeout 60
+expect "*?assword:*"
+send -- "C1sco12345!!!\r"
+sleep 2
+send -- "copy bootflash:IPFM-LEAF101-LAB-START running-config\r"
+sleep 5
+send -- "exit\r"
+#expect eof
+
+
+
+### RESTORING LEAF-102 ###
+eval spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no admin@198.18.5.102
+set timeout 60
+expect "*?assword:*"
+send -- "C1sco12345!!!\r"
+sleep 2
+send -- "copy bootflash:IPFM-LEAF102-LAB-START running-config\r"
+sleep 5
+send -- "exit\r"
+expect eof
+
+
+
+
+
+
+#set prompt ":|#|\\\$"
+#interact -o -nobuffer -re $prompt return
+#send "C1sco12345\r"
+#sleep 3
+#interact -o -nobuffer -re $prompt return
+#send "copy bootflash:IPFM-SPINE201-LAB-START running-config\r"
+#interact -o -nobuffer -re $prompt return
+#send "end\r"
+#interact -o -nobuffer -re $prompt return
+
